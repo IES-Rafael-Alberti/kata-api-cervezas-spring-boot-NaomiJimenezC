@@ -15,9 +15,7 @@ public class BreweryService {
     public Page<Brewery> getAllBreweries(Pageable pageable) {
         return breweryRepository.findAll(pageable);
     }
-    public Brewery getBreweryById(int id) {
-        return breweryRepository.findById(id).orElseThrow(
-                ()-> new RuntimeException("Brewery not found")
-        );
+    public Brewery getBreweryById(Integer id) {
+        return breweryRepository.findById(id).orElse(null);
     }
 }

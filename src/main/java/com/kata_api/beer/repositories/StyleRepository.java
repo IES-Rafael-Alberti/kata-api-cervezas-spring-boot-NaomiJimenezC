@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface StyleRepository extends JpaRepository<Styles, Integer> {
-    Page<Styles> findAllByOrderByNameAsc(Pageable pageable);
-    Page<Styles> findAllByOrderById(int id, Pageable pageable);
-    Optional<Styles> findById(Integer id);
+    Page<Styles> findAllByOrderByStyleNameAsc(Pageable pageable);
+    Page<Styles> findAllByOrderById(Integer id, Pageable pageable);
 }

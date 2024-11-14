@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BreweryRepository extends JpaRepository<Brewery, Integer> {
-     Brewery findByBreweryId(long breweryId);
-     Page<Brewery> findBreweriesByNameContainingIgnoreCase(String breweryName);
+     Page<Brewery> findBreweriesByNameContainingIgnoreCase(String breweryName, Pageable pageable);
      Page<Brewery>findBreweriesByCityContainingIgnoreCase(String city, Pageable pageable);
 }

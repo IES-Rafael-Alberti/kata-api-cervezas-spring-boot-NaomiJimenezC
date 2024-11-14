@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface BeerRepository extends JpaRepository<Beer, Integer> {
-         Beer findByName(String name);
-         Beer findById(int id);
-         Page<Beer> findByNameContainingIgnoreCase(String name, Pageable pageable);
+    Beer findByName(String name);
+    Page<Beer> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }
