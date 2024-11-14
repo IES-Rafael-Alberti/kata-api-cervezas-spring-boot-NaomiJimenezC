@@ -33,6 +33,6 @@ public class Brewery {
     private Integer addUser;
     private Instant lastMod;
 
-    @OneToMany(mappedBy = "breweryId")
+    @OneToMany(mappedBy = "brewery")
     private List<Beer> beers;
 }

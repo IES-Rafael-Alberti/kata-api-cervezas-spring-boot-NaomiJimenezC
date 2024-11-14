@@ -22,6 +22,6 @@ public class Category {
     private String catName;
     private Instant lastMod;
 
-    @OneToMany(mappedBy = "cat_id")
+    @OneToMany(mappedBy = "category")
     private List<Beer> beers;
 }

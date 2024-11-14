@@ -17,11 +17,8 @@ public class Beer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private Integer breweryId;
     private String name;
-    private Integer catId;
-    private Integer styleId;
+
     private Float abv;
     private Float ibu;
     private Float srm;
@@ -35,7 +32,7 @@ public class Beer {
     private Instant lastMod;
 
     @ManyToOne
-    @JoinColumn(name="brewery_id")
+    @JoinColumn(name = "brewery_id")
     private Brewery brewery;
 
     @ManyToOne

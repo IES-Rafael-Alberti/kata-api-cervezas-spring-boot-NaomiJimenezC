@@ -23,6 +23,6 @@ public class Styles {
     private String styleName;
     private Instant lastMod;
 
-    @OneToMany(mappedBy = "styleId")
+    @OneToMany(mappedBy = "style")
     private List<Beer> beers;
 }

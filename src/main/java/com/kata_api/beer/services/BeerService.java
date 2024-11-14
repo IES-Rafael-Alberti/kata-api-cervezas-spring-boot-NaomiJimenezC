@@ -38,9 +38,7 @@ public class BeerService {
             beer.setSrm(newBeer.getSrm());
             beer.setUpc(newBeer.getUpc());
             beer.setFilepath(newBeer.getFilepath());
-            beer.setCatId(newBeer.getCatId());
             beer.setStyle(newBeer.getStyle());
-            beer.setBreweryId(newBeer.getBreweryId());
             beer.setAddUser(newBeer.getAddUser());
             beer.setLastMod(newBeer.getLastMod());
 
