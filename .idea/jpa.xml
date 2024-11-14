@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig" migrateDefaultValues="false" reUseTableSchema="true" newRepositoryParent="org.springframework.data.jpa.repository.JpaRepository">
+    <option name="migrateDefaultValues" value="false" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/kata_api/beer/entities" />
+    <option name="reverseEngineeringLastDbConnectionId" value="2a5e3373-ae77-4b59-a483-f04e3f53cd82" />
+  </component>
+  <component name="JpaPluginProjectSettings" isShowLibraryClassesInOrmView="true">
+    <option name="entityNameTemplate" />
+    <option name="columnNameTemplate" />
+    <option name="isLombokAllArgsConstructor" value="true" />
+    <option name="isLombokNoArgsConstructor" value="true" />
+    <option name="scaffoldingLanguage" />
+  </component>
+</project>
