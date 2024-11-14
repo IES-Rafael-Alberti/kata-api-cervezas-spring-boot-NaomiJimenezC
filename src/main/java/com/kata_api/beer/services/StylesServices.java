@@ -3,6 +3,7 @@ package com.kata_api.beer.services;
 import com.kata_api.beer.entities.Styles;
 import com.kata_api.beer.repositories.StyleRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -12,8 +13,8 @@ public class StylesServices {
         this.styleRepository = styleRepository;
     }
 
-    public List<Styles> getStyles() {
-        return styleRepository.findAll();
+    public Page<Styles> getStyles(Pageable pageable) {
+        return styleRepository.findAll(pageable);
     }
 
     public Styles getStyleById(int id) {

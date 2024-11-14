@@ -13,7 +13,6 @@ public class BeerService {
         this.beerRepository = beerRepository;
     }
 
-
     public Page<Beer> listarCervezas(Pageable pageable) {
         return beerRepository.findAll(pageable);
     }
