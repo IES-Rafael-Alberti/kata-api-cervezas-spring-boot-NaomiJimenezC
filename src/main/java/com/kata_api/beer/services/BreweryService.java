@@ -4,7 +4,9 @@ import com.kata_api.beer.entities.Brewery;
 import com.kata_api.beer.repositories.BreweryRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BreweryService {
     private final BreweryRepository breweryRepository;
     public BreweryService(BreweryRepository breweryRepository) {

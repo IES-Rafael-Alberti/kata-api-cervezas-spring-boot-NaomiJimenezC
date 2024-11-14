@@ -4,7 +4,9 @@ import com.kata_api.beer.entities.Category;
 import com.kata_api.beer.repositories.CategoryRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CategoryService {
     private final CategoryRepository categoryRepository;
     public CategoryService(CategoryRepository categoryRepository) {
