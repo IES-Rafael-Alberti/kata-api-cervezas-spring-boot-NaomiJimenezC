@@ -1,5 +1,6 @@
 package com.kata_api.beer.entities;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +14,9 @@ import java.time.Instant;
 @Getter
 @Setter
 @Entity
+
+@Table(name = "beers")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Beer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,5 +45,7 @@ public class Beer {
 
     @ManyToOne
     @JoinColumn(name = "cat_id")
+    @JsonManagedReference
     private Category category;
+
 }

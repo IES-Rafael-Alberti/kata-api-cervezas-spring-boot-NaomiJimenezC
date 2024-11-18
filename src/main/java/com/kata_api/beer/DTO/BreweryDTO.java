@@ -1,22 +1,12 @@
-package com.kata_api.beer.entities;
+package com.kata_api.beer.DTO;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 import java.time.Instant;
-import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@Entity
-@Table(name = "breweries")
-public class Brewery {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+public class BreweryDTO {
     private Integer id;
-
     private String name;
     private String address1;
     private String address2;
@@ -27,13 +17,7 @@ public class Brewery {
     private String phone;
     private String website;
     private String filepath;
-
-    @Lob
     private String descript;
-
     private Integer addUser;
     private Instant lastMod;
-
-    @OneToMany(mappedBy = "brewery")
-    private List<Beer> beers;
 }

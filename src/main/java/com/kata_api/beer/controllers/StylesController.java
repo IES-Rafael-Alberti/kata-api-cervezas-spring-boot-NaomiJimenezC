@@ -1,5 +1,6 @@
 package com.kata_api.beer.controllers;
 
+import com.kata_api.beer.DTO.StylesDTO;
 import com.kata_api.beer.entities.Styles;
 import com.kata_api.beer.services.StylesServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class StylesController {
 
     @GetMapping
     @CrossOrigin(origins = "http://example.com")
-    public ResponseEntity<Page<Styles>> listarEstilos(Pageable pageable) {
-        Page<Styles> styles = stylesServices.getStyles(pageable);
+    public ResponseEntity<Page<StylesDTO>> listarEstilos(Pageable pageable) {
+        Page<StylesDTO> styles = stylesServices.getStyles(pageable);
         return ResponseEntity.ok(styles);
     }
 

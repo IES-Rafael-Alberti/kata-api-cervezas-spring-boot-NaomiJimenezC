@@ -1,5 +1,6 @@
 package com.kata_api.beer.services;
 
+import com.kata_api.beer.DTO.CategoryDTO;
 import com.kata_api.beer.entities.Category;
 import com.kata_api.beer.repositories.CategoryRepository;
 import org.springframework.data.domain.Page;
@@ -13,13 +14,21 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public Page<Category> getAllCategories(Pageable pageable) {
-        return categoryRepository.findAll(pageable);
+    public Page<CategoryDTO> getAllCategories(Pageable pageable) {
+        return categoryRepository.findAll(pageable).map(this::convertirADTO);
     }
 
     public Category getCategory(Integer id) {
         return categoryRepository.findById(id).orElseThrow(
                 ()-> new RuntimeException("Category with id " + id + " not found")
         );
+    }
+
+    private CategoryDTO convertirADTO(Category category) {
+        CategoryDTO dto = new CategoryDTO();
+        dto.setId(category.getId());
+        dto.setCatName(category.getCatName());
+        dto.setLastMod(category.getLastMod());
+        return dto;
     }
 }

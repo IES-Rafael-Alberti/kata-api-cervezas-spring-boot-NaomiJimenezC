@@ -1,5 +1,6 @@
 package com.kata_api.beer.controllers;
 
+import com.kata_api.beer.DTO.BreweryDTO;
 import com.kata_api.beer.entities.Brewery;
 import com.kata_api.beer.services.BreweryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class BreweryController {
 
     @GetMapping
     @CrossOrigin(origins = "http://example.com")
-    public ResponseEntity<Page<Brewery>> listarCervecerias(Pageable pageable) {
-        Page<Brewery> cervecerias = breweryService.getAllBreweries(pageable);
+    public ResponseEntity<Page<BreweryDTO>> listarCervecerias(Pageable pageable) {
+        Page<BreweryDTO> cervecerias = breweryService.getAllBreweries(pageable);
         return ResponseEntity.ok(cervecerias);
     }
 

@@ -1,5 +1,6 @@
 package com.kata_api.beer.controllers;
 
+import com.kata_api.beer.DTO.CategoryDTO;
 import com.kata_api.beer.entities.Category;
 import com.kata_api.beer.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class CategoryController {
 
     @GetMapping
     @CrossOrigin(origins = "http://example.com")
-    public ResponseEntity<Page<Category>> listarCategorias(Pageable pageable) {
-            Page<Category> categorias = categoryService.getAllCategories(pageable);
+    public ResponseEntity<Page<CategoryDTO>> listarCategorias(Pageable pageable) {
+            Page<CategoryDTO> categorias = categoryService.getAllCategories(pageable);
             return ResponseEntity.ok(categorias);
     }
 

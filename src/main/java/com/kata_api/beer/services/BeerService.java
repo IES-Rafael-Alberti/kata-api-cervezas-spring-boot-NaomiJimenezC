@@ -1,5 +1,6 @@
 package com.kata_api.beer.services;
 
+import com.kata_api.beer.DTO.BeerDTO;
 import com.kata_api.beer.entities.Beer;
 import com.kata_api.beer.repositories.BeerRepository;
 import org.springframework.data.domain.Page;
@@ -13,8 +14,9 @@ public class BeerService {
         this.beerRepository = beerRepository;
     }
 
-    public Page<Beer> listarCervezas(Pageable pageable) {
-        return beerRepository.findAll(pageable);
+    public Page<BeerDTO> listarCervezas(Pageable pageable) {
+
+        return beerRepository.findAll(pageable).map(this::convertirABeerDTO);
     }
 
     public Beer buscarPorId(Integer id) {
@@ -52,5 +54,25 @@ public class BeerService {
         } else {
             throw new RuntimeException("Cerveza no encontrada con id " + id);
         }
+    }
+
+    private BeerDTO convertirABeerDTO(Beer cerveza) {
+        BeerDTO dto = new BeerDTO();
+        dto.setId(cerveza.getId());
+        dto.setName(cerveza.getName());
+        dto.setAbv(cerveza.getAbv());
+        dto.setIbu(cerveza.getIbu());
+        dto.setSrm(cerveza.getSrm());
+        dto.setUpc(cerveza.getUpc());
+        dto.setFilepath(cerveza.getFilepath());
+        dto.setDescript(cerveza.getDescript());
+        dto.setLastMod(cerveza.getLastMod());
+
+        // Verificaciones para evitar NullPointerException
+        dto.setBreweryId(cerveza.getBrewery() != null ? cerveza.getBrewery().getId() : null);
+        dto.setStyleId(cerveza.getStyle() != null ? cerveza.getStyle().getId() : null);
+        dto.setCategoryId(cerveza.getCategory() != null ? cerveza.getCategory().getId() : null);
+
+        return dto;
     }
 }

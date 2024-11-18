@@ -1,5 +1,6 @@
 package com.kata_api.beer.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +25,6 @@ public class Category {
     private Instant lastMod;
 
     @OneToMany(mappedBy = "category")
+    @JsonManagedReference
     private List<Beer> beers;
 }
